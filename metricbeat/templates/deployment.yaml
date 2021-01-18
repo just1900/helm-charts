@@ -86,7 +86,7 @@ spec:
             fieldRef:
               fieldPath: metadata.namespace
         - name: KUBE_STATE_METRICS_HOSTS
-          value: "$({{ .Release.Name | replace "-" "_" | upper }}_KUBE_STATE_METRICS_SERVICE_HOST):$({{ .Release.Name | replace "-" "_" | upper }}_KUBE_STATE_METRICS_SERVICE_PORT_HTTP)"
+          value: kube-state-metrics.kube-system.svc.cluster.local
 {{- if .Values.extraEnvs }}
 {{ toYaml .Values.extraEnvs | indent 8 }}
 {{- end }}

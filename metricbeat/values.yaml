@@ -4,6 +4,10 @@
 metricbeatConfig:
   metricbeat.yml: |
     metricbeat.modules:
+    - module: prometheus
+      period: 10s
+      hosts: ["prometheus.skiff-platform.svc.cluster.local"]
+      metrics_path: /metrics
     - module: kubernetes
       metricsets:
         - container
